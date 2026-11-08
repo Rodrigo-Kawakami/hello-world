@@ -25,3 +25,14 @@ python transcrever.py URL --pause 6 --out minhas_transcricoes
 - Sem legenda: marcado como "sem legenda" no `_indice.md`; com `--whisper`, o áudio é transcrito com faster-whisper (modelo small, CPU).
 - Rodar de novo na mesma playlist pula os vídeos já transcritos e tenta de novo os que falharam.
 - Se o YouTube pedir "Sign in to confirm you're not a bot", o script para e explica. Exporte os cookies do navegador para `cookies.txt` e use `--cookies`.
+
+## Juntar para o claude.ai
+
+Agrupa as transcrições de cada playlist em um arquivo Markdown (com índice e uma seção por aula), para subir poucos arquivos no Project do claude.ai.
+
+```bash
+python juntar.py
+python juntar.py --max-mb 3
+```
+
+Gera `para_claude/<playlist>.md`; pastas acima de `--max-mb` (padrão 2) são divididas em `_parteN.md`.
